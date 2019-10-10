@@ -1,4 +1,3 @@
-from labb6.song import Song
 import timeit
 from random import shuffle
 
@@ -7,6 +6,20 @@ from random import shuffle
 #########################################################
 
 song_list = []
+
+class Song:
+    def __init__(self, trackID, songID, artist, song_title):
+        self.trackID = trackID
+        self.songID = songID
+        self.artist = artist
+        self.song_title = song_title
+
+    def __str__(self):
+        return "artist: " + self.artist + ", song_title: " + self.song_title
+
+    def __lt__(self, other):
+        return ((self.artist) < (other.artist))
+
 
 with open("unique_tracks.txt", "r", encoding="utf-8") as tracklist:
     for row in tracklist:
@@ -17,9 +30,6 @@ with open("unique_tracks.txt", "r", encoding="utf-8") as tracklist:
         song_title = songinfo[3]
         song = Song(track_ID, song_ID, artist, song_title)
         song_list.append(song)
-
-
-song_dict = {song.artist : song for song in song_list}
 
 #########################################################
 #                       SÖKNING                         #
@@ -58,19 +68,16 @@ def hash_search(song_dict, artist):
 #                     SORTING ALGS                     #
 ########################################################
 
-def bubblesort(array):
-    # length of array, minus one since we will be comparing current val with next val
-    array_len = len(array) - 1
+#def insertionSort(array):
+#    for i in range(1, len(array)):
+#        key = array[i]
+#        j = i-1
+#        while j >=0 and key < array[j] :
+#                array[j+1] = array[j]
+#                j -= 1
+#        array[j+1] = key
+#        return array
 
-    for i in range(array_len):
-
-        for j in range(array_len - i):
-            # if next value is larger, we swap them!
-            # which is laughably easy in python
-            if array[j] < array[j + 1]:
-                array[j], array[j + 1] = array[j + 1], array[j]
-
-    return array
 
 
 def quicksort(array):
@@ -99,40 +106,39 @@ def quicksort(array):
 #                       MAIN                           #
 ########################################################
 
-def main():
-    """
-    size = len(song_list)
 
+def main():
+
+    n = 1000
+    smaller_list = song_list[0:250000]
+
+    size = len(smaller_list)
     print("Antal element:", size)
 
     sista = song_list[size - 1]
     test_artist = sista.artist
 
-    n = 1
-    linjtid = timeit.timeit(stmt = lambda: linear_search(song_list, test_artist), number =n)
+    song_dict = {song.artist: song for song in smaller_list}
+
+    linjtid = timeit.timeit(stmt = lambda: linear_search(smaller_list, test_artist), number =n)
     print("linjärsökningen tog", round(linjtid, 4), "sekunder.")
 
-    song_list.sort()
-    bin_time = timeit.timeit(stmt = lambda: binary_search(song_list, test_artist), number =n)
+    smaller_list.sort()
+
+    bin_time = timeit.timeit(stmt = lambda: binary_search(smaller_list, test_artist), number =n)
     print("Binärsökningen på sorterad lista tog", round(bin_time, 4), "sekunder.")
 
     hash_time = timeit.timeit(stmt = lambda: hash_search(song_dict, test_artist), number =n)
     print("Hashsökning tog", round(hash_time, 4), "sekunder.")
-    """
-    smaller_list = song_list[0:1000]
 
     shuffle(smaller_list)
-    sort_n = 80
-    bubble_time = timeit.timeit(stmt=lambda: bubblesort(smaller_list), number = sort_n)
-    print("Bubblesort tog", round(bubble_time, 4), "sekunder")
+    sort_n = 1000
 
-    qs_time = timeit.timeit(stmt=lambda: smaller_list.sort(), number=sort_n)
-    print("Quicksort tog", round(qs_time, 4), "sekunder")
+    pysort_time = timeit.timeit(stmt=lambda: smaller_list.sort, number = sort_n)
+    print("Pythons sortfunktion tog", round(pysort_time, 4), "sekunder")
 
-
-
-
-
+    #qs_time = timeit.timeit(stmt=lambda: smaller_list.sort(), number=sort_n)
+    #print("Quicksort tog", round(qs_time, 4), "sekunder")
 
 main()
 
@@ -151,3 +157,18 @@ main()
 # Dict       |     0.0586            0.1102        0.2279       #
 #            |                                            [sek] #
 #################################################################
+
+
+
+########################################################################
+#                         S O R T E R I N G                            #
+########################################################################
+
+################################################################################
+#              | n = 1000       n = 10 000     n = 100 000     n = 1 000 000   #
+# _____________|______________________________________________________________ #
+# Python sort  |  0.0005 s       0.0025 s       0.038 s          0.3189 s      #
+#              |                                                               #
+# Quick sort   |  0.4517 s       5.1563 s        51.59 s         463.0291 s    #
+#              |                                                   [sek]       #
+################################################################################

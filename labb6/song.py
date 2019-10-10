@@ -9,6 +9,9 @@ class Song:
     def __lt__(self, other):
         return self.artist < other.artist
 
+    def __eq__(self, other):
+        return self.artist == other.artist
+
     def __str__(self):
         return "Track ID: " + self.track_id + ", Song ID: " + self.song_id + \
                ", Artist: " + self.artist + ", Song title: " + self.song_title

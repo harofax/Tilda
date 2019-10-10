@@ -8,12 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="625a5de4-9677-4199-83c0-a3b0e9714d2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/labb5/prepassign.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/labb6/jukebox.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/labb6/song.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/labb6/unique_tracks.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/labb7/DictHash.py" beforeDir="false" afterPath="$PROJECT_DIR$/labb7/DictHash.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labb6/jukebox.py" beforeDir="false" afterPath="$PROJECT_DIR$/labb6/jukebox.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/labb6/song.py" beforeDir="false" afterPath="$PROJECT_DIR$/labb6/song.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,10 +23,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/labb6/jukebox.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="66" column="82" lean-forward="true" selection-start-line="66" selection-start-column="82" selection-end-line="66" selection-end-column="82" />
+            <state relative-caret-position="290">
+              <caret line="125" column="16" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="16" />
               <folding>
-                <element signature="e#0#27#0" expanded="true" />
+                <element signature="e#0#13#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -38,8 +35,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/labb6/song.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+            <state relative-caret-position="216">
+              <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -348,7 +345,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32892805" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35703918" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30769232" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.6560232" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -384,7 +381,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lab 5 done bby fuck this shit orkar inte göra fin kod sue me" />
-    <option name="LAST_COMMIT_MESSAGE" value="lab 5 done bby fuck this shit orkar inte göra fin kod sue me" />
+    <MESSAGE value="LABB 6 TYP KLAR" />
+    <MESSAGE value="Bara sorteringsfiffel kvar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bara sorteringsfiffel kvar" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/LargestIntegerInAList.py">
@@ -565,17 +564,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/labb6/song.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="216">
+          <caret line="12" column="42" selection-start-line="12" selection-start-column="42" selection-end-line="12" selection-end-column="42" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/labb6/jukebox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="66" column="82" lean-forward="true" selection-start-line="66" selection-start-column="82" selection-end-line="66" selection-end-column="82" />
+        <state relative-caret-position="290">
+          <caret line="125" column="16" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="16" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
