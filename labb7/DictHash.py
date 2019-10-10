@@ -160,6 +160,8 @@ def read_pokemon_hash(poke_csv):
 def main():
     poke_dict = read_pokemon_hash("pokemon.csv")
 
+    print(poke_dict.search("Charizard"))
+
 
 if __name__=="__main__":
     main()
