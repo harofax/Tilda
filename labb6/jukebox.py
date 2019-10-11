@@ -29,32 +29,32 @@ def readfile(filename):
 
 def linear_search(tracklist, artist):
     for i in range(len(tracklist)):
-        if tracklist[i].artist == artist:
+        if tracklist[i].song_title == artist:
             return tracklist[i]
     return False
 
 
-def binary_search(tracklist, artist):
+def binary_search(tracklist, song):
     lower = 0
     upper = len(tracklist)
 
     while lower < upper:
         middle = lower + (upper - lower) // 2
-        song = tracklist[middle]
+        artist = tracklist[middle]
 
-        if song.artist == artist:
+        if artist.song_title == song:
             return True
-        elif artist > song.artist:
+        elif song > artist.song_title:
             if lower == middle:
                 break
             lower = middle
-        elif artist < song.artist:
+        elif song < artist.song_title:
             upper = middle
 
 
-def hash_search(song_dict, artist):
+def hash_search(song_dict, song):
 
-    return artist in song_dict
+    return song in song_dict
 
 ########################################################
 #                     SORTING ALGS                     #
@@ -103,28 +103,28 @@ def main():
 
     song_list = readfile("unique_tracks.txt")
 
-    n = 10000
-    smaller_list = song_list[0:250000]
+    n = 1000
+    smaller_list = song_list[0:1000000]
 
     size = len(smaller_list)
     print("Antal element:", size)
 
-    sista = smaller_list[size - 2]
-    test_artist = sista.artist
+    sista = smaller_list[size-1]
+    test_song = sista.song_title
 
     print(str(sista))
 
-    song_dict = {song.artist: song for song in smaller_list}
+    song_dict = {artist.song_title: artist for artist in smaller_list}
 
-    linjtid = timeit.timeit(stmt = lambda: linear_search(smaller_list, test_artist), number =n)
+    linjtid = timeit.timeit(stmt = lambda: linear_search(smaller_list, test_song), number =n)
     print("linjärsökningen tog", round(linjtid, 4), "sekunder.")
 
     sorted_songs = sorted(smaller_list)
 
-    bin_time = timeit.timeit(stmt = lambda: binary_search(sorted_songs, test_artist), number =n)
+    bin_time = timeit.timeit(stmt = lambda: binary_search(sorted_songs, test_song), number =n)
     print("Binärsökningen på sorterad lista tog", round(bin_time, 4), "sekunder.")
 
-    hash_time = timeit.timeit(stmt = lambda: hash_search(song_dict, test_artist), number =n)
+    hash_time = timeit.timeit(stmt = lambda: hash_search(song_dict, test_song), number =n)
     print("Hashsökning tog", round(hash_time, 4), "sekunder.")
 
     shuffle(smaller_list)
@@ -146,11 +146,11 @@ main()
 #################################################################
 #            | n= 250 000         n= 500 000     n= 1 000 000   #
 # ___________|_________________________________________________ #
-# Linjär     |    1.3768             13.6894       48.5282      #
+# Linjär     |    7.5371             16.6894        31.1082     #
 #            |                                                  #
-# Binär      |    0.0115             0.0091       5.9332       #
+# Binär      |    0.0085              0.0091        0.0094      #
 #            |                                                  #
-# Dict       |    0.0002             0.0001        0.2279       #
+# Dict       |    0.0002              0.0002        0.0002      #
 #            |                                            [sek] #
 #################################################################
 
